@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_add_curso"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="whereit.com.passei.AddCursoActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        ></include>
+
+    <TextView
+        android:text="@string/selecione_curso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textSize="18dp"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true" />
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/spinner"
+        app:ms_dropdown_max_height="350dp"
+        android:layout_below="@id/textView2"
+        android:layout_marginTop="90dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        app:ms_dropdown_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="@string/curso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_marginTop="58dp"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/spinner"
+        android:layout_alignStart="@+id/spinner" />
+
+    <Button
+        android:elevation="4dp"
+        android:text="@string/continuar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/button2" />
+
+
+</RelativeLayout>

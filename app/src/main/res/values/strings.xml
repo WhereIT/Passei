@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Passei</string>
+    <string name="login">Login</string>
+    <string name="user">Usuário</string>
+    <string name="sobre">Sobre o Passei</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="selecione_curso">Selecione seu curso para que possamos carregar as disciplinas correspondentes:</string>
+    <string name="curso">Curso</string>
+    <string name="continuar">Continuar</string>
 </resources>
