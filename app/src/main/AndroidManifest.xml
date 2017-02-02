@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddCursoActivity"></activity>
+        <activity android:name=".AddCursoActivity" />
+        <activity android:name=".SemestresActivity"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package whereit.com.passei;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,23 +16,26 @@ public class MainActivity extends AppCompatActivity {
 
     EditText userET;
     UserModel userModel;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Carregando");
+        progressDialog.show();
         userModel = new UserModel(this);
         User user = userModel.select("*", null,"id DESC",null);
         if(user != null){
 
             Intent intent = new Intent(MainActivity.this, AddCursoActivity.class);
             intent.putExtra("user_id", user.getID());
-            intent.putExtra("user_name", user.getUser());
             startActivity(intent);
         }
         else {
             setContentView(R.layout.activity_main);
             userET = (EditText) findViewById(R.id.editUser);
         }
-
+        progressDialog.dismiss();
     }
 
     /**

@@ -12,15 +12,17 @@ import android.content.DialogInterface;
 
 public class AlertUtil {
 
-    public static boolean showAlert(Context context, String title, String msg, boolean negative){
-        final boolean[] res = new boolean[1];
+
+
+    public static void  showAlert(Context context, String title, String msg, boolean negative){
+
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);
         builder.setMessage(msg);
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               res[0] = true;
+
             }
         });
 
@@ -28,13 +30,13 @@ public class AlertUtil {
             builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    res[0] = false;
+
                 }
             });
         }
         AlertDialog dialog = builder.create();
         dialog.show();
-        return res[0];
+
     }
 
 

@@ -5,6 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Pair;
+
+import java.util.Map;
+
 import whereit.com.passei.interfaces.SqlDatabase;
 import whereit.com.passei.model.User;
 
@@ -87,6 +91,15 @@ public class UserModel extends SQLiteOpenHelper implements SqlDatabase{
             e.printStackTrace();
             return null;
         }
+    }
+
+    public int update(String where, Map<String, String> values){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        for(int i = 0; i < values.size(); i++){
+            contentValues.put(values.keySet().toArray()[i].toString(), values.get(values.keySet().toArray()[i].toString()));
+        }
+       return db.update(TABLE,contentValues,where,null);
     }
 
 }

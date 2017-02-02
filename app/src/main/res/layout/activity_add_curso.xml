@@ -59,7 +59,8 @@
         android:layout_below="@+id/spinner"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:id="@+id/button2" />
+        android:id="@+id/button2"
+        android:onClick="cadastrarCurso" />
 
 
 </RelativeLayout>

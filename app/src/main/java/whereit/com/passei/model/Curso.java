@@ -5,4 +5,10 @@ package whereit.com.passei.model;
  */
 
 public class Curso {
+
+    private String curso;
+
+    public Curso(){
+
+    }
 }
