@@ -1,11 +1,10 @@
-package whereit.com.passei.data;
+package whereit.com.passei.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Pair;
 
 import java.util.Map;
 
@@ -25,34 +24,34 @@ public class UserModel extends SQLiteOpenHelper implements SqlDatabase{
 
 
     public UserModel(Context c){
-        super(c,DATABASE,null,1);
+
+        super(c,DATABASE,null,DATABASE_VERSION);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE + "(id INTEGER PRIMARY KEY AUTOINCREMENT, user VARCHAR(50), curso VARCHAR(50)) ");
+        db.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE + " (id INTEGER PRIMARY KEY AUTOINCREMENT, user VARCHAR(50), curso VARCHAR(50)) ");
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE);
 
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE);
     }
 
     public long insert(User user){
 
         try {
-
             SQLiteDatabase db = this.getWritableDatabase();
+            onCreate(db);
             ContentValues contentValues = new ContentValues();
-
             contentValues.put("user", user.getUser());
             contentValues.put("curso", user.getCurso());
             long id = db.insert(TABLE, null, contentValues);
             db.close();
             return id;
         }
-
         catch (Exception e){
             e.printStackTrace();
             return 0;
@@ -63,6 +62,7 @@ public class UserModel extends SQLiteOpenHelper implements SqlDatabase{
     public User select(String select, String where, String order, String limit){
         try {
             SQLiteDatabase db = this.getReadableDatabase();
+            onCreate(db);
             String query = "SELECT " + select + " FROM " + TABLE;
 
             if(where != null) {
@@ -94,12 +94,18 @@ public class UserModel extends SQLiteOpenHelper implements SqlDatabase{
     }
 
     public int update(String where, Map<String, String> values){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        for(int i = 0; i < values.size(); i++){
-            contentValues.put(values.keySet().toArray()[i].toString(), values.get(values.keySet().toArray()[i].toString()));
+        try {
+            SQLiteDatabase db = this.getWritableDatabase();
+            onCreate(db);
+            ContentValues contentValues = new ContentValues();
+            for (int i = 0; i < values.size(); i++) {
+                contentValues.put(values.keySet().toArray()[i].toString(), values.get(values.keySet().toArray()[i].toString()));
+            }
+            return db.update(TABLE, contentValues, where, null);
         }
-       return db.update(TABLE,contentValues,where,null);
+        catch (Exception e){
+            return 0;
+        }
     }
 
 }

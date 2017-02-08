@@ -1,6 +1,5 @@
 package whereit.com.passei;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import whereit.com.passei.data.UserModel;
+import whereit.com.passei.dao.UserModel;
 import whereit.com.passei.model.User;
 import whereit.com.passei.util.AlertUtil;
 
@@ -16,18 +15,18 @@ public class MainActivity extends AppCompatActivity {
 
     EditText userET;
     UserModel userModel;
-    ProgressDialog progressDialog;
+
+    static MainActivity mainActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Carregando");
-        progressDialog.show();
+        mainActivity = this;
+
         userModel = new UserModel(this);
         User user = userModel.select("*", null,"id DESC",null);
-        if(user != null){
 
-            Intent intent = new Intent(MainActivity.this, AddCursoActivity.class);
+        if(user != null){
+            Intent intent = new Intent(MainActivity.this, SemestresActivity.class);
             intent.putExtra("user_id", user.getID());
             startActivity(intent);
         }
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             userET = (EditText) findViewById(R.id.editUser);
         }
-        progressDialog.dismiss();
+
     }
 
     /**
@@ -50,11 +49,14 @@ public class MainActivity extends AppCompatActivity {
             AlertUtil.showAlert(MainActivity.this,"Erro!","Preencha o campo usuário para continuar", false);
         }
         else{
-            User user = new User(_user, "");
-            long id = userModel.insert(user);
+
             Intent intent = new Intent(MainActivity.this, AddCursoActivity.class);
-            intent.putExtra("user_id", (int) id);
+            intent.putExtra("user_name", _user);
             startActivity(intent);
         }
+    }
+
+    public static MainActivity getInstance(){
+        return mainActivity;
     }
 }

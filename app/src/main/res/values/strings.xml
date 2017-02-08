@@ -7,4 +7,7 @@
     <string name="selecione_curso">Selecione seu curso para que possamos carregar as disciplinas correspondentes:</string>
     <string name="curso">Curso</string>
     <string name="continuar">Continuar</string>
+    <string name="materias">Matérias: </string>
+    <string name="faltas">Faltas: </string>
+    <string name="media">Média: </string>
 </resources>

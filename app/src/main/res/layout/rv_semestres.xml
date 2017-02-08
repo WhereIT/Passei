@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/layout_line"
+        >
+        <TextView
+            android:id="@+id/rv_id"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textSize="20dp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/circle_background"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="18dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:textAlignment="center"
+            android:gravity="center"
+             />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/materias"
+        android:textSize="15dp"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/rv_id"
+        android:id="@+id/rv_materias"
+        />
+    <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textSize="15dp"
+         android:text="6"
+         android:textColor="@color/colorSecondaryText"
+         android:id="@+id/rv_txt_materias"
+        android:layout_marginLeft="3dp"
+        android:layout_toRightOf="@+id/rv_materias"
+         android:layout_alignBaseline="@+id/rv_materias"
+         android:layout_alignBottom="@+id/rv_materias"
+         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/rv_id"
+        android:layout_below="@id/rv_materias"
+        android:textSize="15dp"
+        android:textColor="@color/colorPrimaryText"
+        android:text="@string/faltas"
+        android:id="@+id/rv_faltas"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/rv_faltas"
+        android:textSize="15dp"
+        android:text="5"
+        android:layout_marginLeft="3dp"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_below="@id/rv_materias"
+        android:id="@+id/rv_txt_faltas"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/rv_id"
+        android:textSize="15dp"
+        android:text="@string/media"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_below="@id/rv_faltas"
+        android:id="@+id/rv_notas"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/rv_notas"
+        android:textSize="15dp"
+        android:layout_marginLeft="3dp"
+        android:textColor="@color/colorSecondaryText"
+        android:text="9.4"
+        android:layout_below="@id/rv_faltas"
+        android:id="@+id/rv_txt_notas"
+        />
+
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorDivider"
+        android:layout_below="@id/layout_line"
+
+        />
+
+
+
+</RelativeLayout>

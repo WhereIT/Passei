@@ -7,6 +7,7 @@ package whereit.com.passei.interfaces;
 public interface SqlDatabase {
 
     public final String DATABASE = "passei";
+    public final int DATABASE_VERSION = 4;
 
 
 }
