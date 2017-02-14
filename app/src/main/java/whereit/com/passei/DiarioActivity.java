@@ -7,9 +7,13 @@ import android.widget.TextView;
 
 import java.util.GregorianCalendar;
 
+import whereit.com.passei.util.DateUtil;
+
 public class DiarioActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView today;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +28,8 @@ public class DiarioActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         today = (TextView) findViewById(R.id.txtToday);
-
+        DateUtil date = new DateUtil();
+        today.setText(date.getToday());
 
 
 

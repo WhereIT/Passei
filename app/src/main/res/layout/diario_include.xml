@@ -3,13 +3,21 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_toolbar">
+        <include layout="@layout/toolbar" android:id="@+id/toolbar" />
+    </android.support.design.widget.AppBarLayout>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/layout_toolbar"
+        >
 
 
         <TextView
-            android:text="TextView"
+          
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
