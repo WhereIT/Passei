@@ -8,9 +8,16 @@ import java.util.GregorianCalendar;
 
 public class DateUtil {
 
-    public static String getToday(){
+    public String getToday(){
         GregorianCalendar gc = new GregorianCalendar();
-        return "";
+        int weekDay = gc.get(GregorianCalendar.DAY_OF_WEEK);
+        String week = getWeekDay(weekDay);
+        int day = gc.get(GregorianCalendar.DAY_OF_MONTH);
+        int monthNumber = gc.get(GregorianCalendar.MONTH);
+        String month = getMonth(monthNumber);
+        int year = gc.get(GregorianCalendar.YEAR);
+        String today = week + ", " + String.valueOf(day) + " de " + month + " de " + String.valueOf(year);
+        return today;
     }
 
 
@@ -43,6 +50,52 @@ public class DateUtil {
 
         }
         return week;
+    }
+
+    private String getMonth(int monthN){
+        String month;
+        switch (monthN) {
+            case 1:
+                month =  "Janeiro";
+                break;
+            case 2:
+                month =  "Fevereiro";
+                break;
+            case 3:
+                month =  "Março";
+                break;
+            case 4:
+                month =  "Abril";
+                break;
+            case 5:
+                month =  "Maio";
+                break;
+            case 6:
+                month =  "Junho";
+                break;
+            case 7:
+                month =  "Julho";
+                break;
+            case 8:
+                month =  "Agosto";
+                break;
+            case 9:
+                month =  "Setembro";
+                break;
+            case 10:
+                month =  "Outubro";
+                break;
+            case 11:
+                month =  "Novembro";
+                break;
+            case 12:
+                month =  "Dezembro";
+                break;
+            default:
+                month =  "Janeiro";
+
+        }
+        return month;
     }
 
 }
