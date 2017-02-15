@@ -13,6 +13,7 @@ public class Materia {
     private String bibliografia;
     private String situacao;
     private boolean dp;
+    private int cor;
 
 
     public int getId() {
@@ -70,6 +71,10 @@ public class Materia {
     public void setDp(boolean dp) {
         this.dp = dp;
     }
+
+    public int getCor() {return cor; }
+
+    public void setCor(int cor) { this.cor = cor; }
 
 
 

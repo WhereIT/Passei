@@ -33,7 +33,7 @@
         android:textColor="@color/colorPrimaryText"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/rv_id"
-        android:id="@+id/rv_materias"
+        android:id="@+id/rv_materia"
         />
     <TextView
          android:layout_width="wrap_content"
@@ -41,18 +41,18 @@
          android:textSize="15dp"
          android:text="6"
          android:textColor="@color/colorSecondaryText"
-         android:id="@+id/rv_txt_materias"
+         android:id="@+id/rv_txt_materia"
         android:layout_marginLeft="3dp"
-        android:layout_toRightOf="@+id/rv_materias"
-         android:layout_alignBaseline="@+id/rv_materias"
-         android:layout_alignBottom="@+id/rv_materias"
+        android:layout_toRightOf="@+id/rv_materia"
+         android:layout_alignBaseline="@+id/rv_materia"
+         android:layout_alignBottom="@+id/rv_materia"
          />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/rv_id"
-        android:layout_below="@id/rv_materias"
+        android:layout_below="@id/rv_materia"
         android:textSize="15dp"
         android:textColor="@color/colorPrimaryText"
         android:text="@string/faltas"
@@ -67,7 +67,7 @@
         android:text="5"
         android:layout_marginLeft="3dp"
         android:textColor="@color/colorSecondaryText"
-        android:layout_below="@id/rv_materias"
+        android:layout_below="@id/rv_materia"
         android:id="@+id/rv_txt_faltas"
         />
     <TextView
