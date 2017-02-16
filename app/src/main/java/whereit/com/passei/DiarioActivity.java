@@ -30,8 +30,8 @@ public class DiarioActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diario);
 
-        int semestre = getIntent().getIntExtra("semestre_id",0);
-        int userID = getIntent().getIntExtra("user_id",0);
+        int semestre = getIntent().getIntExtra("semestre_id", 0);
+        int userID = getIntent().getIntExtra("user_id", 0);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(semestre + "º Semestre");
@@ -47,17 +47,19 @@ public class DiarioActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mDataSet = getMaterias();
-        mAdapter = new MateriaAdapter(mDataSet);
+        mAdapter = new MateriaAdapter(mDataSet, this);
         mRecyclerView.setAdapter(mAdapter);
 
     }
 
 
-    private List<Materia> getMaterias(){
+
+
+    private List<Materia> getMaterias() {
         List<Materia> materiasList = new ArrayList<>();
-        String[] materias = {"Contabilidade","Marketing", "Linguagem de Programação 1", "Ética","Matematica Financeira"};
-        int[] cores = {R.color.deep_orange,R.color.amber,R.color.grey,R.color.brown,R.color.red};
-        for(int i = 0 ; i < materias.length - 1; i++){
+        String[] materias = {"Contabilidade", "Marketing", "Linguagem de Programação 1", "Ética", "Matematica Financeira"};
+        int[] cores = {R.color.deep_orange, R.color.amber, R.color.lime, R.color.brown, R.color.red};
+        for (int i = 0; i < materias.length; i++) {
             Materia materia = new Materia();
             materia.setMateria(materias[i]);
             materia.setCor(cores[i]);

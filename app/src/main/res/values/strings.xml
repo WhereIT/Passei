@@ -10,4 +10,7 @@
     <string name="materias">Matérias: </string>
     <string name="faltas">Faltas: </string>
     <string name="media">Média: </string>
+    <string name="ver_mais">Ver Mais</string>
+    <string name="editar">Editar</string>
+    <string name="excluir">Excluir</string>
 </resources>
