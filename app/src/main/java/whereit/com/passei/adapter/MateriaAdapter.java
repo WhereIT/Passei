@@ -1,19 +1,15 @@
 package whereit.com.passei.adapter;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.media.Image;
 import android.os.Build;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 

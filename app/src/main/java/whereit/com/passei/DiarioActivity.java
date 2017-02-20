@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import whereit.com.passei.adapter.AulasAdapter;
 import whereit.com.passei.adapter.MateriaAdapter;
+import whereit.com.passei.model.Aulas;
 import whereit.com.passei.model.Materia;
 import whereit.com.passei.util.DateUtil;
 
@@ -19,10 +21,13 @@ public class DiarioActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TextView today;
 
-    private RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView, aRecyclerView;
     private MateriaAdapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private AulasAdapter aAdapter;
+    private RecyclerView.LayoutManager mLayoutManager,aLayoutManager;
     private List<Materia> mDataSet;
+    private List<Aulas> aDataSet;
+
 
 
     @Override
@@ -42,6 +47,7 @@ public class DiarioActivity extends AppCompatActivity {
         DateUtil date = new DateUtil();
         today.setText(date.getToday());
 
+
         mRecyclerView = (RecyclerView) findViewById(R.id.materias_recyclerview);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -49,6 +55,15 @@ public class DiarioActivity extends AppCompatActivity {
         mDataSet = getMaterias();
         mAdapter = new MateriaAdapter(mDataSet, this);
         mRecyclerView.setAdapter(mAdapter);
+
+        aRecyclerView = (RecyclerView) findViewById(R.id.aulas_recyclerview);
+        aRecyclerView.setHasFixedSize(true);
+        aLayoutManager = new LinearLayoutManager(this);
+        aRecyclerView.setLayoutManager(aLayoutManager);
+        aDataSet = getAulas();
+        aAdapter = new AulasAdapter(aDataSet,this);
+        aRecyclerView.setAdapter(aAdapter);
+
 
     }
 
@@ -66,5 +81,29 @@ public class DiarioActivity extends AppCompatActivity {
             materiasList.add(materia);
         }
         return materiasList;
+    }
+
+    private List<Aulas> getAulas(){
+        List<Aulas> aulasList = new ArrayList<>();
+        String[] materias = {"Contabilidade", "Marketing"};
+        String[] professor = {"Adilson", "Andreia"};
+        int[] cores = {R.color.deep_orange, R.color.amber};
+        String[] horaI = {"19h00", "21h00"};
+        String[] horaF = {"20h40", "22h30"};
+        String[] horaR = {"1h00", "3h00"};
+        for (int i = 0; i < materias.length; i++) {
+            Materia materia = new Materia();
+            materia.setMateria(materias[i]);
+            materia.setCor(cores[i]);
+            materia.setProfessor(professor[i]);
+            Aulas aula = new Aulas();
+            aula.setHoraI(horaI[i]);
+            aula.setHoraF(horaF[i]);
+            aula.setHorasRestantes(horaR[i]);
+            aula.setMateria(materia);
+            aulasList.add(aula);
+        }
+
+        return aulasList;
     }
 }
